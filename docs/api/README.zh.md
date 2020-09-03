@@ -125,9 +125,9 @@ toc: menu
 
     - prefetch - `boolean | 'all' | string[] | (( apps: RegistrableApp[] ) => { criticalAppNames: string[]; minorAppsName: string[] })` - 可选，是否开启预加载，默认为 `true`。
 
-      配置为 `true` 则会在第一个微应用 mount 完成后开始预加载其他微应用的静态资源，配置为 `'all'` 则主应用 `start` 后即开始预加载所有微应用静态资源。
+      配置为 `true` 则会在第一个微应用 mount 完成后开始预加载其他微应用的静态资源
 
-      配置为 `'all'` 则主应用 `start` 后即开始预加载所有微应用静态资源。
+      配置为 `'all'` 则主应用 `start` 后即开始预加载所有微应用静态资源
 
       配置为 `string[]` 则会在第一个微应用 mounted 后开始加载数组内的微应用资源
 
@@ -176,7 +176,7 @@ toc: menu
   start();
   ```
 
-### setDefaultMountApp(appLink)`
+### setDefaultMountApp(appLink)
 
 - 参数
 
@@ -298,12 +298,12 @@ toc: menu
   如果需要能支持主应用手动 update 微应用，需要微应用 entry 再多导出一个 update 钩子：
 
   ```ts
-  export function mount(props) {
+  export async function mount(props) {
     renderApp(props);
   }
 
   // 增加 update 钩子以便主应用手动更新微应用
-  export function update(props) {
+  export async function update(props) {
     renderPatch(props);
   }
   ```
